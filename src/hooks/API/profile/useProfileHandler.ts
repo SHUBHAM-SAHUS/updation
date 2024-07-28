@@ -47,7 +47,7 @@ const useProfileHandler = () => {
           data.statusCode === SUCCESS_STATUS_CODE &&
           data.status === SUCCESS_STATUS_MESSAGE
         ) {
-          toast.success(data.message);
+          // toast.success(data.message);
           router.push('/profiletype/familyaccount');
         } else {
           toast.error(data.message);
@@ -70,7 +70,7 @@ const useProfileHandler = () => {
           data.status === SUCCESS_STATUS_MESSAGE
         ) {
           router.push('/profiletype/addfamilyaccount');
-          toast.success(data.message);
+          // toast.success(data.message);
         } else {
           toast.error(data.message);
         }

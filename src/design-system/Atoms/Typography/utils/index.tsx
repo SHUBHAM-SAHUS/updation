@@ -26,6 +26,9 @@ export const getFontSize = (size: TypographySize): string => {
     case 'paragraph':
       return 'text-paragraph';
     case 'body':
+    case 'paragraphw':
+      return 'text-paragraph-w';
+    case 'body':
       return 'text-body';
     case 'caption':
       return 'text-caption';

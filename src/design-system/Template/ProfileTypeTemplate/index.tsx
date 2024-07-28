@@ -44,7 +44,7 @@ const ProfileTypeTemplate: React.FC<ProfileTypeTemplateProps> = ({
   return (
     <>
       <Box>
-        <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
+        <Typography fontFamily="Poppins" size="subtitlew" textAlign="center">
           {title}
         </Typography>
 

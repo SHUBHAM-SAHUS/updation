@@ -1,4 +1,11 @@
-import React, { useState, useCallback, useEffect, memo, useMemo } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  memo,
+  useMemo,
+  useRef,
+} from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import Countdown, { CountdownRenderProps } from 'react-countdown';
 import OTPInput from '@/design-system/Atoms/OtpInput';
@@ -32,30 +39,30 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
   const dispatch = useDispatch();
   const otpInfo = getItemLocalStorage(SIGIN_DETAILS);
   const currentCountry = getItemLocalStorage(SELECT_COUNTRY);
-  const otpDetails = useSelector((state: any) => state.AuthReducer.otpDetails);
-  const selectCountry = useSelector(
-    (state: any) => state.AuthReducer.currentSelectCountry,
+  const { otpDetails, currentSelectCountry } = useSelector(
+    (state: any) => state.AuthReducer,
   );
   const { verifyLoading, verifyOtp, sendOtp, isOtpLoading } = useAuthHandler();
   const [otp, setOtp] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [resendEnabled, setResendEnabled] = useState<boolean>(true);
-  const [resendCount, setResendCount] = useState<number>(0); // State to store the count
+  const [resendCount, setResendCount] = useState<number>(0);
   const isMobile = useMediaQuery('(max-width:992px)');
+  const countdownStartRef = useRef<number>(Date.now()); // useRef to store initial start time
 
   useEffect(() => {
     if (otpInfo) {
       try {
-        const otpDetails = JSON.parse(otpInfo);
-        dispatch(setOtpDetails(otpDetails));
+        const parsedOtpDetails = JSON.parse(otpInfo);
+        dispatch(setOtpDetails(parsedOtpDetails));
       } catch (error) {
         console.error('Failed to parse otpInfo:', error);
       }
     }
     if (currentCountry) {
       try {
-        const selectCountry = JSON.parse(currentCountry);
-        dispatch(currentSelectedCountryDetails(selectCountry));
+        const parsedSelectCountry = JSON.parse(currentCountry);
+        dispatch(currentSelectedCountryDetails(parsedSelectCountry));
       } catch (error) {
         console.error('Failed to parse currentCountry:', error);
       }
@@ -76,11 +83,9 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
               data.statusCode === SUCCESS_STATUS_CODE &&
               data.status === SUCCESS_STATUS_MESSAGE
             ) {
-              // console.log('dd',data?.data.token);
               setItemLocalStorage(ACCESS_TOKEN_KEY, data.data.token);
               setError('');
               router.push('/profiletype');
-              toast.success(data.message);
             } else {
               setError('Incorrect OTP');
               setOtp('');
@@ -95,39 +100,42 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
     [otpDetails, verifyOtp, router],
   );
 
-  const renderer = ({ minutes, seconds, completed }: CountdownRenderProps) => {
-    if (completed) {
-      setResendEnabled(false);
-      return <Typography size="btn"> Resend OTP</Typography>;
-    } else {
-      return (
-        <Typography size="body">
-          Resend OTP in {minutes}:{seconds < 10 ? `0${seconds}` : seconds}s
-        </Typography>
-      );
-    }
-  };
+  const renderer = useCallback(
+    ({ minutes, seconds, completed }: CountdownRenderProps) => {
+      if (completed) {
+        setResendEnabled(false);
+        return <Typography size="btn">Resend OTP</Typography>;
+      } else {
+        return (
+          <Typography size="body">
+            Resend OTP in {minutes}:{seconds < 10 ? `0${seconds}` : seconds}s
+          </Typography>
+        );
+      }
+    },
+    [],
+  );
 
   const handleReSendOtp = useCallback(() => {
-    if (resendCount < selectCountry.otpAttemptLimit) {
+    if (resendCount < currentSelectCountry.otpAttemptLimit-1) {
       sendOtp(otpDetails);
       setResendEnabled(true);
       setError('');
       setOtp('');
-      setResendCount((prevCount) => prevCount + 1); // Increment the count
+      setResendCount((prevCount) => prevCount + 1);
+      countdownStartRef.current = Date.now(); // Reset the countdown start time
     }
-  }, [sendOtp, otpDetails, resendCount, selectCountry.otpAttemptLimit]);
+  }, [sendOtp, otpDetails, resendCount, currentSelectCountry.otpAttemptLimit]);
 
   const otpResendTime = useMemo(() => {
-    return selectCountry?.otpResendTime * 100;
-  }, [selectCountry?.otpResendTime]);
+    return currentSelectCountry?.otpResendTime * 100; // Changed * 100 to * 1000
+  }, [currentSelectCountry?.otpResendTime]);
 
   return (
     <Box className={`${styles.otpContainer} ${styles.containerRow}`}>
       <Box className={styles.otp_contain_justify}>
         <Box className={styles.otparrow} onClick={() => router.push('/')}>
           <FaArrowLeft size={30} className={styles.arrow01} />
-
           <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
             OTP Verification
           </Typography>
@@ -174,12 +182,17 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
       <Button
         fullWidth
         type="submit"
-        disabled={resendEnabled || resendCount >= selectCountry.otpAttemptLimit}
-        onClick={handleReSendOtp} // This is where handleReSendOtp is called
+        disabled={
+          resendEnabled || resendCount >= currentSelectCountry.otpAttemptLimit-1
+        }
+        onClick={handleReSendOtp}
       >
         {resendEnabled ? (
           <Typography fontFamily="Poppins" size="btn" color="white">
-            <Countdown date={Date.now() + otpResendTime} renderer={renderer} />
+            <Countdown
+              date={countdownStartRef.current + otpResendTime}
+              renderer={renderer}
+            />
           </Typography>
         ) : (
           <Typography size="btn">Resend OTP</Typography>

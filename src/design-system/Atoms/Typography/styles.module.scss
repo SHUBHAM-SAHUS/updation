@@ -64,6 +64,14 @@ $font-poppins: 'Poppins', sans-serif;
   font-weight: 400;
 }
 
+
+.text-paragraph-w {
+  font-size: 1.3rem; // 20px / 16 = 1.25rem
+  line-height: 1.6rem;
+  letter-spacing: 0.2px; 
+  font-weight: 600;
+}
+
 .text-body {
   font-size: 1.2rem; // 16px / 16 = 1rem
   line-height: 1.5rem;

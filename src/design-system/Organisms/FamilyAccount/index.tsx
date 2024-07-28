@@ -85,9 +85,11 @@ const FamilyAccount: React.FC<TypesTemplateProps> = ({ cards }) => {
       <Box sx={{ display: 'flex' }} onClick={() => router.back()}>
         <FaArrowLeft size={30} className={styles.arrow01} />
 
-        <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
-          Are you a Parent or Caretaker
-        </Typography>
+        <Box ml={2}>
+          <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
+            Join Zevo family
+          </Typography>
+        </Box>
       </Box>
 
       <Box className={styles.ProfileTypeCardWrp}>
@@ -111,7 +113,7 @@ const FamilyAccount: React.FC<TypesTemplateProps> = ({ cards }) => {
 
       <Box className={styles.accountList}>
         <Box mt={3}>
-          <Typography size="paragraph">
+          <Typography size="paragraphw">
             To join existing family get your family code:
           </Typography>
         </Box>
@@ -119,21 +121,21 @@ const FamilyAccount: React.FC<TypesTemplateProps> = ({ cards }) => {
         <Box className={styles.instructions} mt={3}>
           <ol>
             <li>
-              <Typography size="body">
+              <Typography size="bodyw">
                 If your partner has a ZEVO account, you can connect your
                 accounts by creating a family.
               </Typography>
             </li>
 
             <li>
-              <Typography size="body">
+              <Typography size="bodyw">
                 Activities, progress trackers, and all other features are synced
                 when you create a family.
               </Typography>
             </li>
 
             <li>
-              <Typography size="body">
+              <Typography size="bodyw">
                 Family code is displayed on your partner's ZEVO account profile
                 page. It looks like this:{' '}
                 <span className={styles.code}>A1B23Y</span>
@@ -143,7 +145,7 @@ const FamilyAccount: React.FC<TypesTemplateProps> = ({ cards }) => {
         </Box>
       </Box>
 
-{/*     
+      {/*     
       <Box mt={4}>
         <CustomInput
           label="Enter family code"
@@ -173,8 +175,7 @@ const FamilyAccount: React.FC<TypesTemplateProps> = ({ cards }) => {
         aria-labelledby="dialog-title"
         aria-describedby="dialog-description"
       >
-        <ExistingCard/>
-
+        <ExistingCard />
       </TransitionDialog>
     </Box>
   );

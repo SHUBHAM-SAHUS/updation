@@ -15,7 +15,8 @@ export type TypographySize =
   | 'lg'
   | 'btn'
   | 'subtitlew'
-  | 'bodyw'; 
+  | 'bodyw'
+  | 'paragraphw'; 
 
 export interface TypographyProps {
   fontFamily?: TypographyVariant;

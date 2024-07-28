@@ -37,7 +37,7 @@ const ProfileTypeCard: React.FC<CardComponentProps> = ({
             {index % 2 === 0 ? (
               <>
                 <Box
-                  className={`${styles.cardText} ${active ? styles.activeText : ''}`}
+                  className={`${styles.cardText}  ${active ? styles.activeText : ''}`}
                 >
                   <Typography size="h4">{title}</Typography>
                   {description && (

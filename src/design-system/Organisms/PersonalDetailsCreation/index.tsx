@@ -19,8 +19,11 @@ interface FormValues {
 const PersonalDetailsCreation = () => {
   const router = useRouter();
   const { personalDetails, personalDetailsLoading } = useProfileHandler();
-  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const [selectedCard, setSelectedCard] = useState<string>('');
   const [showCardError, setShowCardError] = useState(false);
+
+  // Calculate the default date (18 years ago)
+  const defaultDateOfBirth = dayjs().subtract(18, 'years');
 
   const {
     control,
@@ -32,7 +35,7 @@ const PersonalDetailsCreation = () => {
     defaultValues: {
       name: '',
       email: '',
-      dateOfBirth: null,
+      dateOfBirth: defaultDateOfBirth, // Set the default date here
     },
   });
 

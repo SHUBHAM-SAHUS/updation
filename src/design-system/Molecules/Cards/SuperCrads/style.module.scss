@@ -2,16 +2,16 @@
 
 .card {
   margin: 0 auto;
-  // width: 430px;
+  width: 150px;
   border: 2px solid transparent;
-  border-radius: 24.16px;
+  border-radius: 30.16px;
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease;
   cursor: pointer;
   border: 4.83px solid #5b5b5b;
-  height: 100%;
-  // padding: 20px 0 !important;
+  height: 95%;
+  padding: 10px 0 !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

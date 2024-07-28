@@ -10,7 +10,6 @@
   color: white;
   display: flex;
   align-items: center;
-  background-color: #963333;
   padding: 0 4px;
   transform: translate(14px, -6px) scale(0.75);
 
@@ -35,7 +34,7 @@
   }
 
   &.Mui-error fieldset {
-    border-color: red !important;
+    // border-color: red !important;
   }
 }
 

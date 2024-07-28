@@ -62,6 +62,7 @@ const ProfileType: React.FC = () => {
           handleClick={handleClick}
           selectedCardKey={selectedCardKey}
           title="What brings you to Zevo?"
+          isChild={true}
         />
       </CommonTemplate>
     </>

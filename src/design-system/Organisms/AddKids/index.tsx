@@ -3,6 +3,7 @@ import { useForm, Controller, useFieldArray } from 'react-hook-form';
 import { Box } from '@mui/material';
 import { Button, CustomInput, Image, Typography } from '@/design-system/Atoms';
 import { CustomDatePicker, GenderCard } from '@/design-system/Molecules';
+import styles from './style.module.scss';
 import fatherIcon from '@/assets/Images/fatherIcon.png';
 import fatherGenderColor from '@/assets/Images/fatherGenderColor.png';
 import motherIcon from '@/assets/Images/motherIcon.png';
@@ -15,6 +16,9 @@ import { useSelector } from 'react-redux';
 import { useProfileHandler } from '@/hooks/API';
 import { LANDING_SCREEN_SEEDDATA } from '@/utils';
 import dayjs from 'dayjs';
+import { FaArrowLeft } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
+import { FaTrash } from 'react-icons/fa';
 
 const genders = [
   {
@@ -44,6 +48,7 @@ interface Child {
 }
 
 const AddChildren: React.FC = () => {
+  const router = useRouter();
   const { addChildren, isLoadingaddChildren } = useProfileHandler();
 
   const {
@@ -107,17 +112,23 @@ const AddChildren: React.FC = () => {
   return (
     <Box>
       <Box>
-        <Typography size="h1" fontFamily="DMSerif">
-          Tell us about your kids
-        </Typography>
+        <Box sx={{ display: 'flex' }} onClick={() => router.back()}>
+          <FaArrowLeft size={30} className={styles.arrow01} />
+
+          <Box ml={2}>
+            <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
+              Tell us about your kids
+            </Typography>
+          </Box>
+        </Box>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Box
             sx={{
-              maxHeight: '400px',
+              maxHeight: '500px',
               overflowY: 'auto',
               padding: '1rem',
-              border: '1px solid #ccc',
+              // border: '1px solid #ccc',
               borderRadius: '8px',
             }}
           >
@@ -213,13 +224,20 @@ const AddChildren: React.FC = () => {
 
                 {index > 0 && (
                   <Box mt={2} display="flex" justifyContent="center">
-                    <Button
+                    {/* <Button
                       type="button"
                       color="secondary"
                       onClick={() => remove(index)}
                     >
                       Delete kid
-                    </Button>
+                    </Button> */}
+                    <button
+                      className={styles.delete_kid_button}
+                      onClick={() => remove(index)}
+                    >
+                      <FaTrash className={styles.icon} />
+                      <span>Delete kid</span>
+                    </button>
                   </Box>
                 )}
               </Box>
@@ -228,21 +246,31 @@ const AddChildren: React.FC = () => {
 
           <Box sx={{ display: 'flex', justifyContent: 'center' }} mt={3}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Image src={addIcons} width={30} alt="icon" />
+              {/* <Image src={addIcons} width={30} alt="icon" /> */}
               <Box ml={1}>
-                <Button
+                {/* <Button
                   type="button"
                   onClick={addChild}
                   disabled={!allFieldsFilled(fields.length - 1)}
+                  className={styles.add_kid_button}
                 >
                   <Typography size="btn" color="white">
                     Add Another Kid
                   </Typography>
-                </Button>
+                </Button> */}
+
+                <button
+                  className={styles.add_kid_button}
+                  type="button"
+                  onClick={addChild}
+                  disabled={!allFieldsFilled(fields.length - 1)}
+                >
+                  <span> + Add Another Kid</span>
+                </button>
               </Box>
             </Box>
           </Box>
-          <Box mt={2}>
+          <Box mt={5}>
             <Button fullWidth type="submit">
               <Typography size="btn">Save</Typography>
             </Button>

@@ -2,3 +2,59 @@
 //   position: fixed;
 //   bottom: 0;
 }
+.add_kid_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 2px dashed #a78bfa;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #a78bfa;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(167, 139, 250, 0.1);
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+
+    &:before {
+    //   content: "+";
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 20px;
+    }
+  }
+}
+
+
+.delete_kid_button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000; // Black background
+  color: #ff0000; // Red text and icon color
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  // &:hover {
+  //   background-color: rgba(255, 0, 0, 0.1); // Slightly transparent red on hover
+  // }
+
+  .icon {
+    margin-right: 8px; // Space between icon and text
+    font-size: 30px; // Icon size
+  }
+
+  span {
+    font-size: 18px; // Adjust the text size if needed
+  }
+}

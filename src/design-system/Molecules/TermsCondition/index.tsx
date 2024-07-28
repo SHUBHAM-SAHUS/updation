@@ -3,14 +3,20 @@ import React from 'react';
 import style from './style.module.scss';
 import { Typography } from '@/design-system/Atoms';
 import { FaArrowLeftLong } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
 
 const TermsCondition = () => {
+     const router = useRouter();
+
   return (
     <>
       <div className={style.termsPageContainer}>
         <h1>
-          <span>
-            <FaArrowLeftLong />
+          <span >
+            <FaArrowLeftLong
+              onClick={() => router.back()}
+              className={style.bacIcon}
+            />
           </span>{' '}
           Terms And Conditions
         </h1>

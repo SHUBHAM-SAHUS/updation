@@ -1,16 +1,18 @@
 @import '../../../../app/custom.scss';
 
 .card {
-  margin: 0 auto;
-  width: 150px;
+  // margin: 0 auto;
+  display: flex;
+  align-items: center;
+  width: 200px;
   border: 2px solid transparent;
-  border-radius: 30.16px;
+  border-radius: 13.16px;
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease;
   cursor: pointer;
-  border: 4.83px solid #5b5b5b;
-  height: 95%;
+  border: 2.83px solid #5b5b5b;
+  height: 70%;
   padding: 10px 0 !important;
   display: flex;
   flex-direction: column;
@@ -85,7 +87,7 @@
 
 .cardText {
   text-align: center;
-  margin-top: 30px;
+  // margin-top: 30px;
   flex-grow: 1;
 
   .parentCardText {

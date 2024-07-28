@@ -24,6 +24,7 @@ const ProfileTypeTemplate: React.FC<ProfileTypeTemplateProps> = ({
   handleClick,
   selectedCardKey,
   title,
+  isChild =false
 }) => {
   const {
     profileType,
@@ -44,9 +45,20 @@ const ProfileTypeTemplate: React.FC<ProfileTypeTemplateProps> = ({
   return (
     <>
       <Box>
-        <Typography fontFamily="Poppins" size="subtitlew" textAlign="center">
+        {/* <Typography fontFamily="Poppins" size="subtitlew" textAlign="center">
           {title}
-        </Typography>
+        </Typography> */}
+
+        <Box sx={{ display: 'flex' }} onClick={() => router.back()}>
+          {isChild &&
+            <FaArrowLeft size={30} className={styles.arrow01} />
+          }
+          <Box ml={2}>
+            <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
+              {title}
+            </Typography>
+          </Box>
+        </Box>
 
         <Box className={styles.mainContainer}>
           <Box>

@@ -68,9 +68,11 @@ const PersonalDetailsCreation = () => {
       <Box>
         <Box sx={{ display: 'flex' }} onClick={() => router.back()}>
           <FaArrowLeft size={30} className={styles.arrow01} />
-          <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
-            Are you a Parent or Caretaker
-          </Typography>
+          <Box ml={1}>
+            <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
+              Customize your experience
+            </Typography>
+          </Box>
         </Box>
         <Box mt={4}>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -154,18 +156,18 @@ const PersonalDetailsCreation = () => {
             </Box>
 
             <Box mt={2} mb={2}>
-              <Typography size="subtitle">
-                Are you going to be or already are
+              <Typography size="body">
+                You identify yourself as
                 <strong className={styles.mandertystar}>*</strong>:
               </Typography>
             </Box>
 
             <Box className={styles.boxConatiner}>
-              {superCards?.map((card:any, index) => (
+              {superCards?.map((card: any, index) => (
                 <Box key={card.key}>
                   <SuperCards
                     cardData={card}
-                   active={selectedCard === card.key}
+                    active={selectedCard === card.key}
                     disabled={card.disabled}
                     onClick={() => handleCardClick(card.key)}
                   />

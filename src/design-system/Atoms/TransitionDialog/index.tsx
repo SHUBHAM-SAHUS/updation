@@ -16,7 +16,8 @@ const Transition = React.forwardRef(function Transition(
   },
   ref: React.Ref<unknown>,
 ) {
-  return <Slide direction={props.direction} ref={ref} {...props} />;
+  const { direction, ...rest } = props;
+  return <Slide direction={direction} ref={ref} {...rest} />;
 });
 
 interface TransitionDialogProps extends Omit<DialogProps, 'maxWidth'> {
@@ -33,7 +34,7 @@ interface TransitionDialogProps extends Omit<DialogProps, 'maxWidth'> {
   ariaDescribedby?: string;
   ariaLabelledby?: string;
   maxWidth?: Breakpoint | false;
-  children:any
+  children: any;
 }
 
 const TransitionDialog: React.FC<TransitionDialogProps> = ({

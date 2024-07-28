@@ -69,7 +69,7 @@ const InputDropdown: FC<InputDropdownProps> = ({
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [open, setOpen] = useState(false);
   const isMobile = useMediaQuery('(max-width:767px)');
-  const popperRef = useRef<HTMLElement | null>(null);
+  const popperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const defaultCountry = countries?.find(
@@ -272,7 +272,11 @@ const InputDropdown: FC<InputDropdownProps> = ({
                             className={styles.countryFlag}
                           />
                         ) : (
-                          <FiFlag size={30} className={styles.countryFlag} color="white" />
+                          <FiFlag
+                            size={30}
+                            className={styles.countryFlag}
+                            color="white"
+                          />
                         )}
                       </InputAdornment>
                     ),

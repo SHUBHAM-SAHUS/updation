@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import clsx from 'clsx';
 import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker';
 import {
   TextField,
@@ -11,9 +10,11 @@ import {
   FormControl,
   FormHelperText,
 } from '@mui/material';
+import clsx from 'clsx';
 import styles from './style.module.scss'; // Import your SCSS module
 
-interface CustomDatePickerProps extends DatePickerProps<Dayjs> {
+interface CustomDatePickerProps
+  extends Omit<DatePickerProps<Dayjs>, 'renderInput'> {
   label?: string;
   required?: boolean;
   helperText?: any;
@@ -45,18 +46,22 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
       {...params}
       variant="outlined"
       inputRef={inputRef}
+      placeholder="DD/MMM/YYYY"
       InputLabelProps={{
         shrink: true,
       }}
       className={clsx(styles.textField, {
         [styles.error]: error,
       })}
+      onClick={handleOpenPicker} // Open calendar on click
       sx={{
+        height: '59px', // Set height
         '& .MuiOutlinedInput-root': {
           border: error ? '1px solid red' : '1px solid white',
-          borderRadius: '2px',
+          borderRadius: '10px !important', // Set border radius
           '&.Mui-focused fieldset': {
-            borderColor: error ? 'red' : 'white',
+            borderColor: error ? 'red' : 'white !important',
+            borderWidth: '1px !important', // Ensure border width does not change
           },
         },
         '& .MuiOutlinedInput-notchedOutline': {
@@ -76,12 +81,14 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         )}
         error={error}
         fullWidth
-        onClick={handleOpenPicker}
+        onClick={handleOpenPicker} // Ensure FormControl also opens the calendar
         sx={{
           border: error ? '1px solid red' : '1px solid white',
-          borderRadius: '2px',
-          '&.Mui-focused': {
+          borderRadius: '10px', // Set border radius
+          height: '59px', // Set height
+          '& .MuiOutlinedInput-root.Mui-focused': {
             borderColor: 'white !important',
+            borderWidth: '1px !important', // Ensure border width does not change
           },
         }}
       >
@@ -90,6 +97,16 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
             htmlFor="custom-date-picker"
             shrink
             className={styles.label}
+            sx={{
+              fontSize: '1.3rem', // Increase the font size
+              marginTop: '-6px', // Add margin
+              background: '#000',
+              padding: '3px',
+              color: error ? 'red' : 'white',
+              '&.Mui-focused': {
+                color: error ? 'red !important' : 'white !important',
+              },
+            }}
           >
             {label}
             {required && <span className={styles.required}>*</span>}
@@ -103,7 +120,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
             onOpen={handleOpenPicker}
             onClose={handleClosePicker}
             format="DD/MMM/YYYY" // Custom date format
-            // renderInput={renderInput}
+            renderInput={renderInput}
             slots={{}}
             slotProps={{
               popper: {

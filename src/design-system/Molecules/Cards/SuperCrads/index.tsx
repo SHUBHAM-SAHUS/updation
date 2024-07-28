@@ -9,7 +9,7 @@ type CardComponentProps = {
   active?: boolean;
   disabled?: boolean;
   onClick?: () => void;
-  index: number; // Add an index prop to determine the card order
+  index?: number; // Add an index prop to determine the card order
   cardData: {
     title: string;
     normalImg: string;

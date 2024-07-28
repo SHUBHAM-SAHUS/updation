@@ -16,8 +16,6 @@ import Image from 'next/image';
 import { useAuthHandler } from '@/hooks/API';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCountryList } from '@/lib/redux-services/AuthSlice';
-
-
 interface templateProps {
   isVerification?: boolean;
   children:any

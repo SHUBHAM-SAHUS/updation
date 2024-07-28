@@ -1,0 +1,66 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  &.mobile {
+    .label {
+      font-size: 14px;
+    }
+
+    .input {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+  }
+}
+
+.label {
+  font-size: 22px;
+  color: white;
+  display: flex;
+  align-items: center;
+  background-color: #121212;
+  padding: 0 4px;
+  transform: translate(14px, -6px) scale(0.75);
+
+  .required {
+    font-size: 30px;
+    color: red;
+    margin-left: 4px;
+  }
+}
+
+.input {
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border-radius: 50px !important;
+  padding: 8px 12px;
+}
+
+.error {
+  border-color: red;
+
+  .MuiOutlinedInput-notchedOutline {
+    border-color: red !important;
+  }
+}
+
+.helperText {
+  font-size: 12px;
+  color: red;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .label {
+    font-size: 14px;
+  }
+
+  .input {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}

@@ -1,0 +1,78 @@
+@import '../../../app/custom.scss'; // Assuming this file contains the color definitions
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  &.progress-fullwidth {
+    width: 100%;
+  }
+  &.progress-large {
+    .progress-bar {
+      height: 16px;
+    }
+  }
+  &.progress-medium {
+    .progress-bar {
+      height: 12px;
+    }
+  }
+  &.progress-small {
+    .progress-bar {
+      height: 8px;
+    }
+  }
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  color: $body-text;
+  min-width: 30px;
+  text-align: center;
+}
+
+.progress {
+  flex: 1;
+  background-color: lighten($body-text, 40%);
+  border-radius: 8px !important;
+  overflow: hidden;
+
+  .progress-bar {
+    border-radius: 8px !important;
+  }
+}
+
+// Color variants
+.progress-purple .progress-bar {
+  background-color: $purple-100;
+}
+.progress-pink .progress-bar {
+  background-color: $pink-100;
+}
+.progress-green .progress-bar {
+  background-color: $green-100;
+}
+.progress-yellow .progress-bar {
+  background-color: $yellow-100;
+}
+.progress-error .progress-bar {
+  background-color: $error-100;
+}
+
+@media (max-width: 768px) {
+  .progress-wrapper {
+    .progress-label {
+      font-size: 0.75rem;
+    }
+
+    .progress {
+      .progress-bar {
+        height: 8px;
+        border-radius: 8px;
+      }
+    }
+  }
+}

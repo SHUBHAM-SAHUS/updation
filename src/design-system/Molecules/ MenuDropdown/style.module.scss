@@ -1,0 +1,62 @@
+.triggerButtonSimple {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 150ms ease;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customMenuSimple {
+  z-index: 1;
+}
+
+.customMenuSimpleListbox {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+  padding: 6px;
+  margin: 12px 0;
+  min-width: 200px;
+  border-radius: 12px;
+  overflow: auto;
+  outline: 0px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  color: #333;
+}
+
+.customMenuSimpleItem {
+  list-style: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: default;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.menuItemIcon {
+  margin-right: 8px;
+}
+
+.customMenuSimpleItem:focus {
+  outline: 3px solid #94a3b8;
+  background-color: #e2e8f0;
+  color: #333;
+}
+
+.customMenuSimpleItem:last-of-type {
+  border-bottom: none;
+}
+
+.menuItemIcon {
+  margin-right: 8px;
+}

@@ -1,0 +1,123 @@
+// Typography.module.scss
+
+// Font Families
+$font-dm-serif: 'DM Serif Display', serif;
+$font-poppins: 'Poppins', sans-serif;
+
+.font-DMSerif {
+  font-family: $font-dm-serif;
+}
+
+.font-Poppins {
+  font-family: $font-poppins;
+}
+
+// Font Sizes, Line Heights, Letter Spacing, and Font Weights
+.text-h1 {
+  font-size: 4rem; // 64px / 16 = 4rem
+  line-height: 90%;
+  letter-spacing: -0.05rem; // -0.8px / 16 = -0.05rem
+  font-weight: bold;
+}
+
+.text-h2 {
+  font-size: 3.4rem; // 48px / 16 = 3rem
+  line-height: 90%;
+  letter-spacing: -0.03125rem; // -0.5px / 16 = -0.03125rem
+  font-weight: 400;
+}
+
+.text-h3 {
+  font-size: 2.375rem; // 38px / 16 = 2.375rem
+  line-height: 90%;
+  letter-spacing: -0.03125rem; // -0.5px / 16 = -0.03125rem
+  font-weight: bold;
+}
+
+.text-h4 {
+  font-size: 2rem; // 28px / 16 = 1.75rem
+  line-height: 2.3rem;
+  letter-spacing: -0.03125rem; // -0.5px / 16 = -0.03125rem
+  font-weight: 500;
+}
+
+.text-subtitle {
+  font-size: 1.5rem; // 24px / 16 = 1.5rem
+  line-height: 1.6rem;
+  letter-spacing: 0.1rem; 
+  font-weight: 400;
+}
+
+
+.text-subtitle-weight {
+  font-size: 1.7rem; // 24px / 16 = 1.5rem
+  line-height: 1.6rem;
+  // letter-spacing: 0.1rem; 
+  letter-spacing: 0; 
+  font-weight: 600;
+}
+
+.text-paragraph {
+  font-size: 1.25rem; // 20px / 16 = 1.25rem
+  line-height: 1.6rem;
+  letter-spacing: 0.2px; 
+  font-weight: 400;
+}
+
+.text-body {
+  font-size: 1.2rem; // 16px / 16 = 1rem
+  line-height: 1.5rem;
+  letter-spacing: -0.07rem; // -0.8px / 16 = -0.05rem
+  font-weight: 500;
+  // letter-spacing: 0.03rem;
+  letter-spacing: 0;
+}
+
+
+.text-bodyw {
+  font-size: 1.1rem; // 16px / 16 = 1rem
+  line-height: 1.75rem;
+  letter-spacing: 0.2rem; // -0.8px / 16 = -0.05rem
+  font-weight: 400;
+  // letter-spacing: 0.03rem;
+  letter-spacing: 0;
+}
+
+.text-caption,
+.text-small,
+.text-sm,
+.text-md,
+.text-lg {
+  font-size: 1rem; // 12px / 16 = 0.75rem
+  line-height: 1.5em;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.text-sm {
+  line-height: 150%;
+}
+
+.text-md {
+  font-size: 1rem; // 16px / 16 = 1rem
+  line-height: 1.5rem;
+  // letter-spacing: -0.03125rem;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.text-lg {
+  font-size: 1.125rem; // 18px / 16 = 1.125rem
+  line-height: 150%;
+
+}
+.text-button {
+  font-size: 0.975rem; // 14px / 16 = 0.875rem
+  line-height: 150%;
+  font-weight: 600;
+  // letter-spacing: 0.05rem;
+  letter-spacing: 0;
+  // text-transform: capitalize;
+}
+
+// Additional styles as needed

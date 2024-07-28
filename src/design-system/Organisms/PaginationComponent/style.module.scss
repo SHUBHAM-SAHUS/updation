@@ -1,0 +1,53 @@
+@import '../../../app/custom.scss';
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  cursor: pointer;
+
+  & a {
+    padding: 10px;
+    border: 1px solid transparent;
+    color: $dark-grey;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px;
+    &:hover {
+      color: $theme-color !important;
+      border-radius: 4px;
+      border: 1px solid #cacaca;
+      background-color: #fbfdff;
+    }
+  }
+}
+
+.paginationLink {
+  font-weight: bold;
+  &:hover {
+    background-color: $red;
+  }
+}
+
+.paginationActive {
+  & a {
+    color: $theme-color !important;
+    border-radius: 5px;
+    border: 1px solid $theme-color;
+    background: linear-gradient(to bottom, #fff 0, #fefefe 100%);
+  }
+}
+
+.paginationDisabled {
+  & a {
+    cursor: not-allowed;
+    color: #cacaca;
+    border: 1px solid #dfe3e8;
+  }
+}
+.pagination_wrapper {
+  width: 40%;
+}
+.paginationList {
+  padding: 0;
+}

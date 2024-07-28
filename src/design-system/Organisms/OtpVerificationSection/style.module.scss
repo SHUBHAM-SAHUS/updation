@@ -1,0 +1,62 @@
+@import '../../../app/custom.scss';
+
+
+.otpIncorrect {
+  color: red;
+}
+
+.formContainer0{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: 100%;
+  padding: 5px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+
+.otparrow{
+  display:flex;
+}
+
+.arrow01{
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+.otp_contain_justify{
+  display: inline-block;
+}
+
+@media (max-width: 992px){
+
+  .containerRow{
+    padding: 40px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+}
+
+@media (max-width: 576px){
+
+  .formContainer0{
+    padding: 24px 16px !important
+  }
+  .otpContainer{
+    // padding: 24px 16px !important
+  }
+  .containerRow{
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .commonCardsdw{
+    padding: 24px 16px !important
+  }
+
+}
+
+

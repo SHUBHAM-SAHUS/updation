@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+}
+
+.buttonContainer {
+  position: absolute;
+  margin-top: 20px;
+  top: 20px; // Adjust as needed
+  right: 20px; // Adjust as needed
+  z-index: 2; // Ensure the button is above other elements
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; // Ensures the image is in the background
+}
+
+.content {
+  z-index: 1; // Ensure the content is above the background image
+  margin-top: 50px; // Adjust based on your design
+}
+
+.button_cls {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.margin_space {
+  margin-top: 700px !important;
+
+  @media (max-width: 1200px) {
+    margin-top: 550px !important;
+  }
+
+  @media (max-width: 992px) {
+    margin-top: 450px !important;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 350px !important;
+  }
+
+  @media (max-width: 576px) {
+    margin-top: 250px !important;
+  }
+}

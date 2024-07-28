@@ -1,0 +1,67 @@
+// _checkbox.scss
+
+@import '../../../app/custom.scss'; // Import your custom variables
+
+// _checkbox.scss
+// _checkbox.scss
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 0.5rem;
+
+  &-input {
+    display: none;
+  }
+
+  &-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $body-text;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    &.checked {
+      border-color: $purple-100;
+      background-color: $purple-100;
+    }
+
+    &.disabled {
+      border-color: $disable-text;
+      // background-color: lighten($disable-text, 60%);
+      cursor: not-allowed;
+    }
+
+    &.checked.disabled {
+      border-color: lighten($disable-text, 40%);
+      background-color: lighten($disable-text, 60%);
+    }
+  }
+
+  &-icon {
+    display: none;
+
+    &.checked {
+      display: block;
+      color: $heading-text;
+    }
+
+    &.disabled {
+      color: lighten($disable-text, 40%);
+    }
+  }
+
+  &-label {
+    font-size: 1rem;
+    color: $body-text;
+
+    &.disabled {
+      color: $disable-text;
+    }
+  }
+}

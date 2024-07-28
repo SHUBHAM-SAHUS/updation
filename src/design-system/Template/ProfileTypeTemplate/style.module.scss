@@ -1,0 +1,8 @@
+
+
+.mainContainer{
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure the container takes the full height */
+}

@@ -1,0 +1,57 @@
+@import '../../../app/custom.scss';
+
+.radioButtonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+// .label {
+//   margin-bottom: 0.5rem;
+//   font-weight: bold;
+// }
+
+.subLabel {
+  color: #9ca3af;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.error {
+  color: #f87171; /* Red color for error message */
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Styles for the checked radio button */
+.form-check-input:checked + .form-check-label {
+  color: red !important; /* Purple color for the checked label */
+}
+
+.radioButtonContainer .form-check.form-check-inline .form-check-input:checked {
+  background-color: $theme-color; /* Theme color background for the checked radio button */
+  border-color: $theme-color; /* Theme color border for the checked radio button */
+}
+
+// .radioButtonContainer .form-check-input:checked {
+//   background-color: $theme-color !important; /* Purple background for the checked radio button */
+//   border-color: $theme-color !important; /* Purple border for the checked radio button */
+// }
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16.1px;
+  color: $label-color;
+  margin-bottom: 4px;
+
+  .required {
+    color: red;
+    margin-left: 4px;
+  }
+}
+
+.form-check-input:checked {
+  background-color: $theme-color;
+  border-color: $modal-button;
+}

@@ -1,0 +1,18 @@
+// components/SkeletonTable.module.scss
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+
+  th,
+  td {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f8f9fa;
+  }
+}

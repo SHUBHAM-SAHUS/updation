@@ -1,0 +1,35 @@
+.imageConatiner{
+  height: 100vh;
+   overflow: hidden;
+}
+.Slide_image img {
+  animation-name: slideDown;
+  animation-duration: 75s; // Set the same duration for both animations
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.Slide_image01 img {
+  animation-name: slideUp;
+  animation-duration: 75s; // Set the same duration for both animations
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}

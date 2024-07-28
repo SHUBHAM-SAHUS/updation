@@ -1,0 +1,47 @@
+// colors.scss
+
+// ------- Figma Colors ------ //
+$red: #ee002b;
+$green: #0a8917;
+$theme-color: #794aff;
+$full-black: #000000;
+$dark-grey: #212b36;
+$label-color: #2b3674;
+$modal-button: #9e7aff;
+
+// Primary Colors
+
+// Text Colors
+$body-text: #475467;
+$heading-text: #101828;
+
+// Disabled Colors
+$disable-fields: #d6d6d6;
+$disable-text: #707070;
+
+// Gradients
+$gradient-purple: linear-gradient(90deg, #aa8dff 0%, #fcfcfd 100%);
+$gradient-pink: linear-gradient(90deg, #aa8dff 0%, #fe649f 100%);
+$gradient-green: linear-gradient(90deg, #5cc9b5 0%, #82e2d1 100%);
+$gradient-yellow: linear-gradient(90deg, #ffd875 0%, #fec430 100%);
+
+// *------ new color codes-----*
+
+$purple-100: #a17fff;
+$pink-100: #fe649f;
+$green-100: #5cc9b5;
+$yellow-100: #fec430;
+$error-100: #eb2416;
+$light-purple: #baa1ff;
+$grey: #a9a9a9;
+$progress-track: #e4e7ec;
+$black: #0c0c0c;
+$body-text: #cfcfcf;
+$heading-text: #ffffff;
+$disable-text: #505050;
+$light-grey: #515151;
+
+// Font Family
+
+$font-poppins: 'Poppins', sans-serif;
+$font-dm-serif: 'DM Serif Display', serif;

@@ -1,0 +1,51 @@
+@import '../../../app//custom.scss';
+
+.form-check-input {
+  width: 40px;
+  height: 20px;
+  background-color: $disable-text;
+  border: none;
+  border-radius: 9999px;
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:checked {
+    background-color: $purple-100;
+
+    &::before {
+      transform: translateX(20px);
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: $heading-text;
+    border-radius: 9999px;
+    transition: transform 0.2s ease;
+  }
+
+  &:disabled {
+    background-color: lighten($disable-text, 40%);
+    cursor: not-allowed;
+
+    &::before {
+      background-color: lighten($disable-text, 60%);
+    }
+  }
+}
+
+.form-check-label {
+  font-size: 0.875rem;
+  color: $body-text;
+
+  &.disabled {
+    color: $disable-text;
+  }
+}

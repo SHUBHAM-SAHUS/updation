@@ -10,7 +10,7 @@ import {
   Autocomplete,
   Paper,
 } from '@mui/material';
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiFlag } from 'react-icons/fi'; // Import FiFlag icon
 import Image from 'next/image';
 import styles from './style.module.scss';
 
@@ -263,7 +263,7 @@ const InputDropdown: FC<InputDropdownProps> = ({
                     ...params.InputProps,
                     startAdornment: (
                       <InputAdornment position="start">
-                        {selectedCountry && (
+                        {selectedCountry ? (
                           <Image
                             src={selectedCountry.flagUrl}
                             alt={`${selectedCountry.name} flag`}
@@ -271,6 +271,8 @@ const InputDropdown: FC<InputDropdownProps> = ({
                             height={30}
                             className={styles.countryFlag}
                           />
+                        ) : (
+                          <FiFlag size={30} className={styles.countryFlag} color="white" />
                         )}
                       </InputAdornment>
                     ),

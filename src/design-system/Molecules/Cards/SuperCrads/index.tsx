@@ -29,7 +29,7 @@ const SuperCards: React.FC<CardComponentProps> = ({
   const { title, description, normalImg, colorImg } = cardData;
 
   return (
-    <Box
+    <Box width="100%" px={2}
       className={`${styles.card} ${active ? styles.active : ''} ${disabled ? styles.disabled : ''}`}
       onClick={onClick}
     >
@@ -44,6 +44,7 @@ const SuperCards: React.FC<CardComponentProps> = ({
             alt={title}
             width={100}
             height={100}
+            className={styles.image_of_super}
           />
       
         </Box>

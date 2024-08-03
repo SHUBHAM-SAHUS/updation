@@ -21,6 +21,8 @@ export const getFontSize = (size: TypographySize): string => {
       return 'text-h3';
     case 'h4':
       return 'text-h4';
+      case 'h6':
+        return 'card_h6';
     case 'subtitle':
       return 'text-subtitle';
     case 'paragraph':

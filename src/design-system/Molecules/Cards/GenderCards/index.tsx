@@ -20,7 +20,7 @@ const GenderCard: React.FC<GenderCardProps> = ({
 }) => {
   return (
     <Box
-      className={`${styles.card} ${active ? styles.active : ''}`}
+      className={`${styles.card_gender_sec} ${active ? styles.active : ''}`}
       onClick={onClick}
     >
       <Box className={styles.cardContent}>

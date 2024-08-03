@@ -9,3 +9,4 @@ export { default as PersonalDetailsCreation } from './PersonalDetailsCreation';
 export { default as AddChildren } from './AddKids';
 export { default as CustomModal } from './CustomModal';
 export { default as ExistingCard } from "./ExistingCard"
+export { default as DeleteKids } from "./DeleteKids"

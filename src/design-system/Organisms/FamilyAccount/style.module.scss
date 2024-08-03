@@ -26,8 +26,8 @@
           min-height: 1.5rem;
           border-radius: 50%;
           text-align: center;
-          margin-right: 0.5rem;
-          margin-top: 0.5rem;
+          margin-right: 10px;
+          margin-top: 0;
           font-weight: bold;
         }
       }
@@ -38,3 +38,51 @@
     color: #A17FFF;
   }
 
+  .family_account_note_heading{
+    font-size: 18px !important;
+    margin-top: 30px;
+    font-weight: 500 !important;
+  }
+
+  .instructions ol li{
+    font-size: 14px;
+    line-height: 1.7;
+    color: #FCFCFC;
+  }
+
+  .lineClass {
+  position: relative;
+  background-color: black;
+  z-index: 1;
+  margin-top: 15px;
+}
+
+.lineClass:after {
+  z-index: -1;
+  content: '';
+  background: white;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+
+.spanCls{
+  background: black;
+  padding:  0 15px;
+  // text-transform: uppercase;
+
+  margin-top: 15px;
+}
+
+.ProfileTypeCardWrp:first-child{
+// margin-top: 15px !important;
+}
+
+.ProfileTypeCardWrp{
+  margin-top: 20px;
+}

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 const AccountCreationTemplate = dynamic(
   () => import('@/design-system/Template/AccountCreationTemplate'),
-  { ssr: false },
+  { ssr: false }
 );
 
 const CommonTemplate = dynamic(

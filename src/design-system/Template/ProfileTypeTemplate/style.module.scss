@@ -1,8 +1,19 @@
-
-
-.mainContainer{
-    display: flex;
+.mainContainer {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%; /* Ensure the container takes the full height */
+  height: calc(100% - 35px); /* Ensure the container takes the full height */
+}
+
+.box_container_scroll {
+  height: 100%;
+  overflow-y: auto;
+}
+
+// arrow01
+
+@media (max-width: 992px) {
+  .arrow01 {
+    display: none;
+  }
 }

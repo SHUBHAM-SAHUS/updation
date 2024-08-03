@@ -19,6 +19,8 @@ interface CustomDatePickerProps
   required?: boolean;
   helperText?: any;
   error?: boolean;
+  minAge?: any;
+  isFocus?: boolean;
 }
 
 const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
@@ -28,6 +30,8 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   error = false,
   value,
   onChange,
+  minAge,
+  isFocus,
   ...props
 }) => {
   const [open, setOpen] = useState(false);
@@ -46,7 +50,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
       {...params}
       variant="outlined"
       inputRef={inputRef}
-      placeholder="DD/MMM/YYYY"
+      placeholder="dd/MMM/yyyy" // Corrected placeholder format
       InputLabelProps={{
         shrink: true,
       }}
@@ -59,17 +63,21 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         '& .MuiOutlinedInput-root': {
           border: error ? '1px solid red' : '1px solid white',
           borderRadius: '10px !important', // Set border radius
-          '&.Mui-focused fieldset': {
-            borderColor: error ? 'red' : 'white !important',
-            borderWidth: '1px !important', // Ensure border width does not change
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: error ? 'red' : 'white', // Remove hover effect
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: error ? 'red' : 'white', // Remove focus effect
           },
         },
         '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: error ? 'red' : 'white !important',
+          borderColor: error ? 'red' : 'white',
         },
       }}
     />
   );
+
+  const minDate = dayjs().subtract(minAge, 'year');
 
   return (
     <>
@@ -84,11 +92,26 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         onClick={handleOpenPicker} // Ensure FormControl also opens the calendar
         sx={{
           border: error ? '1px solid red' : '1px solid white',
-          borderRadius: '10px', // Set border radius
+          borderRadius: '12px', // Set border radius
           height: '59px', // Set height
-          '& .MuiOutlinedInput-root.Mui-focused': {
-            borderColor: 'white !important',
-            borderWidth: '1px !important', // Ensure border width does not change
+          '&:hover': {
+            borderColor: error ? 'red' : 'white', // Remove hover effect
+          },
+          '&.Mui-focused': {
+            borderColor: error ? 'red' : 'white', // Remove focus effect
+          },
+          '&.Mui-error': {
+            borderColor: 'red',
+          },
+          '&.Mui-error:hover': {
+            borderColor: 'red',
+          },
+          '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
+            {
+              borderColor: error ? 'red' : 'white',
+            },
+          '& .css-1w0im7y-MuiInputBase-input-MuiOutlinedInput-input': {
+            textTransform: 'uppercase !important',
           },
         }}
       >
@@ -104,7 +127,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
               padding: '3px',
               color: error ? 'red' : 'white',
               '&.Mui-focused': {
-                color: error ? 'red !important' : 'white !important',
+                color: error ? 'red' : 'white', // Remove focus effect
               },
             }}
           >
@@ -116,18 +139,18 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
           <DatePicker
             value={value}
             onChange={onChange}
+            autoFocus={isFocus}
             open={open}
             onOpen={handleOpenPicker}
             onClose={handleClosePicker}
-            format="DD/MMM/YYYY" // Custom date format
-            renderInput={renderInput}
-            slots={{}}
+            format="DD-MMM-YYYY" // Display format
+            minDate={minDate} // Set min date based on minAge
             slotProps={{
               popper: {
                 sx: {
                   '& .MuiPaper-root': {
                     backgroundColor: '#ffffff', // Set your custom background color here
-                    border: '1px solid white', // Set the border color to white
+                    border: error ? '0.1px solid red' : '0.1px solid white', // Set the border color to red if error
                   },
                   '& .MuiPickersDay-root': {
                     color: 'black', // Set the text color here
@@ -162,6 +185,9 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                   },
                   '& .MuiPickersCalendarHeader-label': {
                     color: 'black !important', // Ensure the calendar header label text color is black
+                  },
+                  '& .css-1w0im7y-MuiInputBase-input-MuiOutlinedInput-input': {
+                    textTransform: 'uppercase !important',
                   },
                 },
               },

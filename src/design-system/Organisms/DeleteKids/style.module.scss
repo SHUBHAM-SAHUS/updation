@@ -1,0 +1,79 @@
+
+
+.custom_modal{
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: #ffffff;
+  padding: 30px;
+  position: relative;
+}
+
+
+.custom_modal h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: black !important;
+  font-family: 'Poppins', sans-serif; 
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subHeading {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif; 
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.noButton,
+.yesButton {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.noButton {
+  background-color: white;
+  color: black;
+}
+
+.yesButton {
+  background-color: #dba7f2;
+  color: white;
+  border-color: #dba7f2;
+}
+
+.noButton{
+  background-color: white;
+  border: 1px solid #000000;
+  padding: 10px;
+  width: 120px;
+  color: black;
+  box-shadow: 2px 5px 0 #000000;
+  font-family: 'Poppins', sans-serif; 
+  border-radius: 12px;
+}
+
+.yesButton{
+  background-color: #A17FFF;
+  border: 1px solid #000000;
+  padding: 10px;
+  width: 120px;
+  color: white;
+  box-shadow: 2px 5px 0 #000000;
+  font-family: 'Poppins', sans-serif; 
+  border-radius: 12px;
+}
+

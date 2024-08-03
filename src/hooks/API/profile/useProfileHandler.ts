@@ -31,7 +31,6 @@ const useProfileHandler = () => {
     {
       // ...queryOptions,
       onSuccess: (data) => {
-        console.log('data', data.data);
         // Dispatch country list to Redux store
         setItemLocalStorage(COUNTRYLIST_DETAILS, JSON.stringify(data.data));
         // dispatch(setCountryList(countryList.data));
@@ -69,7 +68,7 @@ const useProfileHandler = () => {
           data.statusCode === SUCCESS_STATUS_CODE &&
           data.status === SUCCESS_STATUS_MESSAGE
         ) {
-          router.push('/profiletype/addfamilyaccount');
+          router.push('/profiletype/personalaccount');
           // toast.success(data.message);
         } else {
           toast.error(data.message);
@@ -90,8 +89,6 @@ const useProfileHandler = () => {
             data.statusCode === SUCCESS_STATUS_CODE &&
             data.status === SUCCESS_STATUS_MESSAGE
           ) {
-            debugger;
-
             dispatch(setProfileDetails(data?.data?.profile));
             // router.push('/profiletype/addfamilyaccount');
             toast.success(data.message);
@@ -143,6 +140,111 @@ const useProfileHandler = () => {
     },
   );
 
+    const { mutate: addKidsProfile, isLoading: isLoadingKidsProfile } =
+      useMutation((payload: any) => ProfileService.addKidsProfile(payload), {
+        onSuccess: (data: any) => {
+          if (
+            data.statusCode === SUCCESS_STATUS_CODE &&
+            data.status === SUCCESS_STATUS_MESSAGE
+          ) {
+            router.push('/profile');
+            toast.success(data.message);
+          } else {
+            toast.error(data.message);
+          }
+        },
+        onError: (error: any) => {
+          toast.error(error);
+        },
+      });
+  
+   const { mutate: updateKidsProfile, isLoading: isLoadingupdateKidsProfile } =
+     useMutation((payload: any) => ProfileService.updateKidsProfile(payload), {
+       onSuccess: (data: any) => {
+         if (
+           data.statusCode === SUCCESS_STATUS_CODE &&
+           data.status === SUCCESS_STATUS_MESSAGE
+         ) {
+           router.push('/profile');
+           toast.success(data.message);
+         } else {
+           toast.error(data.message);
+         }
+       },
+       onError: (error: any) => {
+         toast.error(error);
+       },
+     });
+  
+  
+     const {
+       mutate: updatePersonalProfile,
+       isLoading: isLoadingupdatePersonalProfile,
+     } = useMutation((payload: any) => ProfileService.updatePersonalProfile(payload), {
+       onSuccess: (data: any) => {
+         if (
+           data.statusCode === SUCCESS_STATUS_CODE &&
+           data.status === SUCCESS_STATUS_MESSAGE
+         ) {
+           router.push('/profile');
+           toast.success(data.message);
+         } else {
+           toast.error(data.message);
+         }
+       },
+       onError: (error: any) => {
+         toast.error(error);
+       },
+     });
+  
+  
+  const {
+    mutate: removePersnalProfile,
+    isLoading: isLoadinremovePersonalProfile,
+  } = useMutation(
+    (payload: any) => ProfileService.removeParentImage(payload),
+    {
+      onSuccess: (data: any) => {
+        if (
+          data.statusCode === SUCCESS_STATUS_CODE &&
+          data.status === SUCCESS_STATUS_MESSAGE
+        ) {
+          router.push('/profile');
+          toast.success(data.message);
+        } else {
+          toast.error(data.message);
+        }
+      },
+      onError: (error: any) => {
+        toast.error(error);
+      },
+    },
+  );
+
+
+   const {
+     mutate: removekidsProfileImg,
+     isLoading: isLoadinremovekidsProfileImg,
+   } = useMutation(
+     (payload: any) => ProfileService.removeKidsImage(payload),
+     {
+       onSuccess: (data: any) => {
+         if (
+           data.statusCode === SUCCESS_STATUS_CODE &&
+           data.status === SUCCESS_STATUS_MESSAGE
+         ) {
+           router.push('/profile');
+           toast.success(data.message);
+         } else {
+           toast.error(data.message);
+         }
+       },
+       onError: (error: any) => {
+         toast.error(error);
+       },
+     },
+   );
+
   return {
     profileType,
     isProfileTypeLoading,
@@ -156,6 +258,16 @@ const useProfileHandler = () => {
     childProfileTypeLoading,
     addChildren,
     isLoadingaddChildren,
+    addKidsProfile,
+    isLoadingKidsProfile,
+    updateKidsProfile,
+    isLoadingupdateKidsProfile,
+    updatePersonalProfile,
+    isLoadingupdatePersonalProfile,
+    removePersnalProfile,
+    isLoadinremovePersonalProfile,
+    removekidsProfileImg,
+    isLoadinremovekidsProfileImg,
   };
 };
 

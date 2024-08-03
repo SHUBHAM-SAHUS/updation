@@ -6,13 +6,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  border: 2px dashed #a78bfa;
-  border-radius: 10px;
+  padding: 16px 40px;
+  border: .125rem dashed #ffffff;
+  border-radius: 12px;
   background-color: transparent;
   color: #a78bfa;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  font-family: Poppins;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -56,5 +58,23 @@
 
   span {
     font-size: 18px; // Adjust the text size if needed
+    margin-top: 1px;
+    margin-left: 4px;
+    font-family: poppins;
   }
+}
+
+.mandertystar {
+  color: red;
+}
+
+
+.customflex_main_gender{
+  width: 100%;
+  justify-content: space-between !important;
+}
+
+.delete_kid_box0{
+  padding-bottom: 5px;
+  border-bottom: 2px solid #4C4C4C;
 }

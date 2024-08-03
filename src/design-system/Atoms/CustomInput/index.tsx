@@ -22,6 +22,7 @@ interface CustomInputProps extends Omit<TextFieldProps, 'variant'> {
   disabled?: boolean;
   defaultValue?: string | number;
   endAdornment?: React.ReactNode;
+  isFocus?: boolean;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -34,6 +35,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   disabled,
   defaultValue,
   endAdornment,
+  isFocus = false,
   ...props
 }) => {
   const theme = useTheme();
@@ -53,12 +55,14 @@ const CustomInput: React.FC<CustomInputProps> = ({
           borderRadius: '12px',
           '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
             {
+              outline: 'none !important',
               borderColor: error ? 'red !important' : 'white !important',
-              borderWidth: '1px', // Ensure border width does not change
+              borderWidth: '0px', // Ensure border width does not change
               borderRadius: '12px', // Ensure border radius does not change
             },
           '& .MuiInputLabel-root.Mui-focused': {
             color: error ? 'red !important' : 'white !important',
+            outline: 'none !important',
           },
         }}
       >
@@ -84,7 +88,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
         )}
         <OutlinedInput
           id="custom-input"
+          autoFocus={isFocus}
           value={value}
+          autoComplete="off"
           onChange={onChange}
           defaultValue={defaultValue}
           label={label}
@@ -100,21 +106,20 @@ const CustomInput: React.FC<CustomInputProps> = ({
             )
           }
           multiline={false}
-          autoComplete="off"
           {...(props as OutlinedInputProps)}
           sx={{
             height: '59px',
             '& .MuiOutlinedInput-root': {
               '& fieldset': {
                 borderColor: error ? 'red' : 'white',
-                borderWidth: '1px', // Ensure border width does not change
+                borderWidth: '0.1px', // Ensure border width does not change
                 borderRadius: '10px', // Ensure border radius does not change
               },
               '&:hover fieldset': {
-                borderColor: error ? 'red' : 'white',
+                borderColor: error ? 'red' : 'none',
               },
               '&.Mui-focused fieldset': {
-                borderColor: error ? 'red' : 'white',
+                borderColor: error ? 'red' : 'none',
               },
               '&.Mui-error fieldset': {
                 borderColor: 'red',
@@ -125,7 +130,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
             },
             '& .MuiInputBase-input': {
               color: 'white', // Ensure text color remains white when active
-              fontSize: '1.3rem', // Maintain font size
+              fontSize: '16px', // Maintain font size
             },
             '& .css-185bnpj-MuiInputBase-root-MuiOutlinedInput-root ': {
               borderRadius: '10px',

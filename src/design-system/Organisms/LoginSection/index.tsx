@@ -230,7 +230,7 @@ const LoginSection: React.FC = () => {
         >
           By continuing, you agree to our
         </Typography>
-        <br />
+        {/* <br /> */}
         <Box className={styles.policy001}>
           <Link
             href="/terms&condition"
@@ -255,17 +255,7 @@ const LoginSection: React.FC = () => {
           </Link>
         </Box>
       </Box>
-      {/* <CustomModal
-        open={open}
-        onClose={() => setOpen(false)}
-        title="This is the modal title"
-        description="Make sure to use aria-labelledby on the modal dialog with an optional aria-describedby attribute."
-        width={600}
-      >
-        <Typography size="h2">
-          Here is some additional content for the modal.
-        </Typography>
-      </CustomModal> */}
+     
     </Box>
   );
 };

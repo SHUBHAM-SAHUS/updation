@@ -1,0 +1,61 @@
+.custom_modal{
+    width: 560px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 30px;
+    padding-top: 70px;
+    position: relative;
+}
+
+.custom_modal_close_icon{
+    font-size: 32px;
+    color: black;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.custom_modal input{
+    border: 1px solid black !important;
+    color: black !important;
+    font-weight: 500;
+    border-radius: 10px !important;
+    padding: 18px !important;
+}
+
+.custom_modal label{
+    font-size: 18px;
+    color: black !important;
+    background-color: white !important;
+    padding: 0 4px !important;
+}
+
+
+@media (max-width: 992px) {
+
+    .custom_modal{
+        width: 320px;
+        margin: 0 auto;
+        border-radius: 20px;
+        background-color: #ffffff;
+        padding: 20px;
+        padding-top: 70px;
+        position: relative;
+    }
+    
+    .MuiDialog-paper{
+        margin: 0 !important;    
+    }
+
+
+}
+
+.customInput{
+    border: 1px solid  black;
+    // border-radius: ;
+}
+
+.customInput:hover{
+}

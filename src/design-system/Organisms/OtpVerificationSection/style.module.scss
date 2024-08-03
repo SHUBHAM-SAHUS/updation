@@ -18,6 +18,7 @@
 
 .otparrow{
   display:flex;
+  align-items: center;
 }
 
 .arrow01{
@@ -35,6 +36,13 @@
     padding: 40px;
     width: 90%;
     margin: 0 auto;
+  }
+
+  .arrow01{
+    position: fixed;
+    left: 24px;
+    top: 24px;
+    z-index: 99;
   }
   
 }
@@ -54,9 +62,13 @@
   }
 
   .commonCardsdw{
-    padding: 24px 16px !important
+    padding: 24px !important;
   }
 
 }
 
+/////////////
 
+.text-paragraph-w_{
+  font-size: 16px !important;
+}

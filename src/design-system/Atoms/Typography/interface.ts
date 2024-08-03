@@ -16,6 +16,7 @@ export type TypographySize =
   | 'btn'
   | 'subtitlew'
   | 'bodyw'
+  | 'h6'
   | 'paragraphw'; 
 
 export interface TypographyProps {

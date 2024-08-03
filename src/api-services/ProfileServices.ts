@@ -11,6 +11,13 @@ const {
     ADD_KIDS,
     CURRENT_PAGE_STATUS,
     SEED_DATA,
+    VIEW_PROFILE,
+    KIDS_ADD_PROFILE,
+    UPDATE_KIDS,
+    PROFILE_UPDATE,
+    DELETE_KIDS_IMAGE,
+    DELETE_PARENT_IMAGE,
+    DELETE_KIDS,
   },
 } = API_ENDPOINTS;
 
@@ -54,6 +61,41 @@ class ProfileServices {
   childrenStatus = async (data: profileTypePayload) => {
     const endpoint = `${CHILDREN_STATUS}`;
     return this.services.put(endpoint, data);
+  };
+
+  profileDetails = async () => {
+    const endpoint = `${VIEW_PROFILE}`;
+    return this.services.get<any>(endpoint);
+  };
+
+  addKidsProfile = async (data: profileTypePayload) => {
+    const endpoint = `${KIDS_ADD_PROFILE}`;
+    return this.services.post(endpoint, data);
+  };
+
+  updateKidsProfile = async (data: profileTypePayload) => {
+    const endpoint = `${UPDATE_KIDS}`;
+    return this.services.put(endpoint, data);
+  };
+
+  updatePersonalProfile = async (data: profileTypePayload) => {
+    const endpoint = `${PROFILE_UPDATE}`;
+    return this.services.put(endpoint, data);
+  };
+
+  Deletekids = async (data: profileTypePayload) => {
+    const endpoint = `${DELETE_KIDS}`;
+    return this.services.delete(endpoint, data);
+  };
+
+  removeKidsImage = async (data: profileTypePayload) => {
+    const endpoint = `${DELETE_KIDS_IMAGE}`;
+    return this.services.delete(endpoint, data);
+  };
+
+  removeParentImage = async (data: profileTypePayload) => {
+    const endpoint = `${DELETE_PARENT_IMAGE}`;
+    return this.services.delete(endpoint, data);
   };
 }
 

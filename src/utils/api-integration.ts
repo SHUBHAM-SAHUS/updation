@@ -13,6 +13,13 @@ export const API_ENDPOINTS = {
     ADD_KIDS: '/profile/api/v1/kids',
     CURRENT_PAGE_STATUS: '/profile/api/v1/profiles',
     SEED_DATA: '/profile/api/v1/seed-data',
+    VIEW_PROFILE: '/profile/api/v1',
+    KIDS_ADD_PROFILE: '/profile/api/v1/kid',
+    UPDATE_KIDS: '/profile/api/v1/kid',
+    PROFILE_UPDATE: '/profile/api/v1/personal-detail',
+    DELETE_KIDS_IMAGE: '/profile/api/v1/profile-image',
+    DELETE_PARENT_IMAGE: '/profile/api/v1/profile-image',
+    DELETE_KIDS: '/profile/api/v1/kid',
   },
   PUBLIC: {},
 } as const;

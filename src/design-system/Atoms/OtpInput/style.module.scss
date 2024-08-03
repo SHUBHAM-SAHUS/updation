@@ -16,13 +16,18 @@
   width: 100% !important;
   height: 100px !important;
   border: 1px solid #fff;
-  border-radius: 1.2rem !important; // Slightly less rounded corners
+  border-radius: 24px !important; // Slightly less rounded corners
   background-color: transparent;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 36px;
+  font-weight: 600;
   text-align: center;
   outline: none;
-  margin: 10px;
+  margin-right: 16px;
+}
+
+.otpInput:last-child{
+  margin-right: 0;
 }
 
 .error {
@@ -38,7 +43,7 @@
   .otpInput {
     width: 100% !important;
     height: 80px !important;
-    border-radius: 0.9rem !important;
+    border-radius: 20px !important;
   }
 }
 
@@ -46,15 +51,27 @@
   .otpInput {
     width: 100% !important;
     height: 100px !important;
-    border-radius: 0.9rem !important;
+    border-radius: 20px !important;
+    margin-right: 12px;
+    margin-top: 24px;
   }
+
+  .otpInput:last-child{
+    margin-right: 0;
+  }
+
 }
 
 @media (max-width: 576px) {
   .otpInput {
     width: 100% !important;
     height: 76px !important;
-    border-radius: 12px !important;
-    margin: 8px;
+    border-radius: 16px !important;
+    margin-right: 10px;
   }
+
+  .otpInput:last-child{
+    margin-right: 0;
+  }
+
 }

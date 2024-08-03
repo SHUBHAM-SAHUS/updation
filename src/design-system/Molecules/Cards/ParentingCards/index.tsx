@@ -6,6 +6,7 @@ import { Image, Typography } from '@/design-system/Atoms';
 type CardComponentProps = {
   title?: string;
   description?: string;
+  isParentCards?: boolean;
   image?: string;
   active?: boolean;
   disabled?: boolean;
@@ -21,13 +22,15 @@ const ProfileTypeCard: React.FC<CardComponentProps> = ({
   disabled,
   onClick,
   index,
+  isParentCards = false,
 }) => {
   const isMobile = useMediaQuery('(max-width:767px)');
 
   return (
     <Box
-      className={`${styles.card} ${active ? styles.active : ''} ${disabled ? styles.disabled : ''}`}
+      className={`${styles.card} ${active ? styles.active : ''} ${disabled ? styles.disabled : ''} ${isParentCards ? styles.parentCard : ''}`}
       onClick={onClick}
+      mt={index % 2 !== 0 && isParentCards ? 2 : 4}
     >
       <Box
         className={`${styles.cardContent} ${true ? styles.mobile : styles.desktop}`}
@@ -37,9 +40,9 @@ const ProfileTypeCard: React.FC<CardComponentProps> = ({
             {index % 2 === 0 ? (
               <>
                 <Box
-                  className={`${styles.cardText}  ${active ? styles.activeText : ''}`}
+                  className={`${styles.cardText} ${active ? styles.activeText : ''}`}
                 >
-                  <Typography size="h4">{title}</Typography>
+                  <Typography size="h6">{title}</Typography>
                   {description && (
                     <Typography size="body">{description}</Typography>
                   )}
@@ -60,7 +63,7 @@ const ProfileTypeCard: React.FC<CardComponentProps> = ({
                 <Box
                   className={`${styles.cardText} ${active ? styles.activeText : ''}`}
                 >
-                  <Typography size="h4">{title}</Typography>
+                  <Typography size="h6">{title}</Typography>
                   {/* {description && (
                     <Typography size="body">{description}</Typography>
                   )} */}

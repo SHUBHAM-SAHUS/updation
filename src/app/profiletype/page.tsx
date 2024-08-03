@@ -36,7 +36,6 @@ const ProfileType: React.FC = () => {
 
    const handleClick = useCallback(() => {
      if (selectedCardKey) {
-       console.log('Selected card key:', selectedCardKey);
        // Navigate based on the selected card key
        if (selectedCardKey === 'parent') {
          const payload = {

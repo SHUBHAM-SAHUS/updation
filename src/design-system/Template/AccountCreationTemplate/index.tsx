@@ -24,7 +24,7 @@ const AccountCreationTemplate: React.FC<ProfileTypeProps> = ({
   cards,
 }) => {
   return (
-    <Box>
+    <Box width="100%">
       {famiLyAccount ? (
         <FamilyAccount cards={cards} />
       ) : familyCreation ? (

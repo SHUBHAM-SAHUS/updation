@@ -1,30 +1,73 @@
-.termsPageContainer {
-  padding: 4% 10%;
-}
-.termsPageContainer h1 {
-  font-size: 50px;
-  letter-spacing: 2px;
-}
-.termsPageContainer h1 span {
-  font-size: 25px;
-  margin-right: 3%;
-}
-.pageContent h4 {
-  padding: 2% 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: large;
-  font-weight: 400;
-}
-.pageContent ul li {
-  font-family: 'Poppins', sans-serif;
+/* TermsOfService.module.scss */
+
+.container {
+  min-height: 110vh;
+  padding: 1rem;
+  @media (min-width: 1024px) {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  margin-bottom: 6rem;
+  @media (min-width: 640px) {
+    margin-bottom: 18rem;
+  }
+  font-family: "Poppins", sans-serif;
 }
 
-@media (max-width: 600px){
- .termsPageContainer h1 {
-  font-size: 25px;}
+.innerContainer {
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  // background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 2rem;
 }
 
+.heading {
+  font-size: 2.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
 
-.bacIcon{
+.text {
+  margin-bottom: 1.8rem;
+  font-size: 20px;
+}
+
+.subheading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.list {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.link {
+  color: #2563eb;
+}
+
+.mt8 {
+  margin-top: 2rem;
+}
+
+.mt2 {
+  margin-top: 0.5rem;
+}
+.goback{
+  font-size: 30px;
+}
+
+.goBack{
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.arrowIcon{
+  margin-top: 8px !important;
   cursor: pointer;
 }

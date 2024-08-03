@@ -34,27 +34,53 @@ const ProfileTypeTemplate: React.FC<ProfileTypeTemplateProps> = ({
   } = useProfileHandler();
   const router = useRouter();
   const isMobile = useMediaQuery('(max-width:767px)');
+  const isTab = useMediaQuery('(max-width:992px)');
 
   const handleCardClick = useCallback((key: string) => {
     if (!cards?.find((card) => card.key === key)?.disabled) {
-      debugger;
       handleCardSelect?.(key);
     }
   }, []);
 
   return (
     <>
-      <Box>
+      <Box width="100%">
         {/* <Typography fontFamily="Poppins" size="subtitlew" textAlign="center">
           {title}
         </Typography> */}
-
-        <Box sx={{ display: 'flex' }} onClick={() => router.back()}>
-          {isChild &&
-            <FaArrowLeft size={30} className={styles.arrow01} />
-          }
-          <Box ml={2}>
-            <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
+        {isTab && (
+          <Box
+            className="toolbar_mob_res"
+            sx={{ display: 'flex' }}
+            onClick={() => router.back()}
+            justifyContent={isTab ? 'center' : 'start'}
+          >
+            {<FaArrowLeft size={30} className="arrow01" />}
+            <Box>
+              <Typography
+                className="toolbar_mob_res_heading"
+                fontFamily="Poppins"
+                size="subtitlew"
+                textAlign={isTab ? 'center' : 'left'}
+              >
+                Select your role
+              </Typography>
+            </Box>
+          </Box>
+        )}
+        <Box
+          sx={{ display: 'flex' }}
+          onClick={() => router.back()}
+          justifyContent={isTab ? 'center' : 'start'}
+          // className="toolbar_mob_res"
+        >
+          {isChild && <FaArrowLeft size={30} className={styles.arrow01} />}
+          <Box ml={isChild ? 2:0}>
+            <Typography
+              fontFamily="Poppins"
+              size="subtitlew"
+              textAlign={isTab ? 'center' : 'left'}
+            >
               {title}
             </Typography>
           </Box>
@@ -62,7 +88,7 @@ const ProfileTypeTemplate: React.FC<ProfileTypeTemplateProps> = ({
 
         <Box className={styles.mainContainer}>
           <Box>
-            <Box>
+            <Box className={styles.box_container_scroll}>
               {cards?.map((card, index) => (
                 <Box key={card.key}>
                   <ProfileTypeCard
@@ -79,7 +105,7 @@ const ProfileTypeTemplate: React.FC<ProfileTypeTemplateProps> = ({
             </Box>
           </Box>
 
-          <Box>
+          <Box className="btn_fixed_res">
             <Button
               fullWidth
               onClick={() => handleClick?.()}

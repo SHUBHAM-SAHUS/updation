@@ -1,25 +1,16 @@
-@import '../../../../app/custom.scss';
-
 .card {
   margin: 0 auto;
-  // width: 430px;
-  border: 2px solid transparent;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease;
   cursor: pointer;
-  margin: 2rem 0;
-  border: 2px solid #5b5b5b;
-  height: 100%;
-  // padding: 20px 0 !important;
+  margin-top: 30px;
+  height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  &:hover {
-    border: 2px solid white;
-  }
 
   &.active {
     box-shadow: 4px 7px 0px 0px #baa1ff;
@@ -27,21 +18,8 @@
     background-color: white;
   }
 
-  &.disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-
-    &:hover {
-      border: 2px solid #5b5b5b; // No hover effect when disabled
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 10px 10px 40px 10px !important;
-    margin: 1rem 0;
-  }
-  @media (max-width: 480px) {
-    padding: 5px 5px 5px 5px !important;
+  &.parentCard {
+    margin-top: 15px; // Apply margin-top of 15 when isParentCards is true
   }
 }
 
@@ -68,21 +46,17 @@
 }
 
 .cardImage {
+  text-align: right !important;
   width: 50% !important;
-  float: left;
-  text-align: right;
-  height: auto;
-  max-height: 150px !important;
-  margin-bottom: 0;
-  border-radius: 8px;
-  flex-shrink: 0;
+  float: left !important;
+  height: 149px !important;
 
   @media (max-width: 767px) {
-    max-height: 200px !important;
+    max-height: auto !important;
   }
 
   @media (max-width: 480px) {
-    max-height: 150px !important;
+    max-height: auto !important;
   }
 }
 
@@ -101,7 +75,6 @@
   .MuiTypography-body1 {
     font-size: 1rem;
   }
-
 }
 
 .activeText {
@@ -116,9 +89,19 @@
   padding: 16px;
 }
 
-.cardImage_active01{
+.cardImage_active01 {
   text-align: right !important;
-  width: 70% !important;
-  height: 145px !important;
+  width: 50% !important;
   float: right !important;
+  height: 149px !important;
+}
+
+.cardImage_active01 img {
+  width: 100% !important;
+}
+
+@media (max-width: 992px) {
+  .card {
+    margin-top: 20px;
+  }
 }

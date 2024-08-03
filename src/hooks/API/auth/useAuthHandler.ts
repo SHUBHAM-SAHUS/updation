@@ -29,7 +29,6 @@ const useAuthHandler = () => {
     {
       // ...queryOptions,
       onSuccess: (data) => {
-        console.log('data', data.data);
         // Dispatch country list to Redux store
         setItemLocalStorage(COUNTRYLIST_DETAILS, JSON.stringify(data.data));
         dispatch(setCountryList(countryList?.data));

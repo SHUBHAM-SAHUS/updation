@@ -20,6 +20,10 @@
 //   }
 // }
 
+.card_gender_sec{  
+  text-align: center;
+}
+
 .cardContent {
   display: flex;
   flex-direction: column;
@@ -28,7 +32,9 @@
 
 .imageWrapper {
   position: relative;
-  padding: 1rem 1rem 0 1rem;
+  padding: 8px 0;
+  padding-top: 12px;
+  text-align: center;
   .genderImg {
     width: 91px;
     height: 91px;
@@ -50,13 +56,16 @@
   text-align: center;
   // margin-top: 8px;
   color: white;
+  font-size: 16px !important;
+  font-weight: 400;
 
   &.activeText {
+    font-weight: 600;
     color: $purple-100; // Purple text color when active
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 575px) {
   .imageWrapper {
     padding: 0.3rem;
     .genderImg {
@@ -65,6 +74,16 @@
     }
   }
   .cardText {
-    font-size: 10px !important;
+    font-size: 14px !important;
   }
 }
+
+
+////////
+
+.active img{
+  border: 2px solid #a78bfa !important;
+  border-radius: 24px !important;
+}
+
+

@@ -2,7 +2,7 @@
 
 .loginLogo {
   margin: 0 auto;
-  height: 60px !important;
+  height: 50px !important;
 }
 
 @media (min-width: 1800x) {
@@ -59,7 +59,7 @@
       width: 100%;
       flex-direction: column;
       height: 100%;
-      padding: 10px;
+      padding: 0;
       justify-content: space-between;
       box-sizing: border-box;
       // width: 100%;
@@ -154,8 +154,8 @@
 
 .condition {
   font-weight: 300 !important ;
-  font-size: 16px !important;
-  margin :0 3px;
+  font-size: 14px !important;
+  margin :0 4px;
   font-family: Poppins ;
   line-height: 17px;
   // margin: 5px;
@@ -177,7 +177,7 @@
   width: 100%;
   flex-direction: column;
   height: 100%;
-  padding: 10px;
+  padding: 0;
   justify-content: space-between;
   box-sizing: border-box;
 }
@@ -238,7 +238,7 @@
 }
 
 .containerRow{
-  padding: 10px;
+  padding: 0;
   width: 100%;
   margin: 0 auto;
 }
@@ -254,3 +254,11 @@
 
  }
 
+/////
+
+.termsText{
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-bottom: 12px;
+}

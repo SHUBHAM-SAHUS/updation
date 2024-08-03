@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import styles from './style.module.scss';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import { Button, CustomInput, Typography } from '@/design-system/Atoms';
 import { CustomDatePicker, SuperCards } from '@/design-system/Molecules';
 import { useRouter } from 'next/navigation';
@@ -22,27 +22,25 @@ const PersonalDetailsCreation = () => {
   const [selectedCard, setSelectedCard] = useState<string>('');
   const [showCardError, setShowCardError] = useState(false);
 
-  // Calculate the default date (18 years ago)
-  const defaultDateOfBirth = dayjs().subtract(18, 'years');
+  const isMobile = useMediaQuery('(max-width:767px)');
+  const isTab = useMediaQuery('(max-width:992px)');
 
   const {
     control,
     handleSubmit,
     formState: { errors },
     setValue,
-    watch,
+    trigger,
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
       email: '',
-      dateOfBirth: defaultDateOfBirth, // Set the default date here
+      dateOfBirth: null, // Set the default date to null here
     },
   });
 
   const onSubmit = (data: FormValues) => {
     if (selectedCard) {
-      console.log('Form submitted:', { ...data, selectedCard });
-
       const formattedDateOfBirth = data.dateOfBirth?.format('YYYY-MM-DD');
 
       const payload = {
@@ -64,30 +62,54 @@ const PersonalDetailsCreation = () => {
     setShowCardError(false);
   };
 
-  const watchDateOfBirth = watch('dateOfBirth');
+  const validateField = async (name: keyof FormValues) => {
+    await trigger(name);
+  };
 
   return (
     <>
-      <Box>
-        <Box sx={{ display: 'flex' }} onClick={() => router.back()}>
-          <FaArrowLeft size={30} className={styles.arrow01} />
-          <Box ml={1}>
-            <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
+      <Box width="100%" height="100%">
+        <Box
+          className="toolbar_mob_res"
+          sx={{ display: 'flex' }}
+          justifyContent={isTab ? 'center' : 'start'}
+        >
+          <FaArrowLeft
+            size={30}
+            className="arrow01"
+            onClick={() => router.back()}
+          />
+
+          <Box ml={2}>
+            <Typography
+              className="toolbar_mob_res_heading"
+              fontFamily="Poppins"
+              size="subtitlew"
+              textAlign={isTab ? 'center' : 'left'}
+            >
               Customize your experience
             </Typography>
           </Box>
         </Box>
-        <Box mt={4}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Box mt={4}>
+
+        <Box mt={5} className="mainContainer" height="100%">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={styles.form_indi_relate}
+          >
+            <Box mt={3}>
               <Controller
                 name="name"
                 control={control}
                 rules={{
                   required: 'Name is required',
                   pattern: {
-                    value: /^[a-zA-Z0-9 ]*$/,
-                    message: 'Name should not contain special characters',
+                    value: /^[a-zA-Z ]*$/,
+                    message: 'Name should only contain letters and spaces',
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: 'Name should not be greater than 50 characters',
                   },
                 }}
                 render={({ field }) => (
@@ -99,12 +121,16 @@ const PersonalDetailsCreation = () => {
                     fullWidth
                     error={!!errors.name}
                     helperText={errors.name?.message}
+                    onChange={(e) => {
+                      field.onChange(e);
+                      validateField('name');
+                    }}
                   />
                 )}
               />
             </Box>
 
-            <Box mt={4}>
+            <Box mt={3}>
               <Controller
                 name="email"
                 control={control}
@@ -113,6 +139,10 @@ const PersonalDetailsCreation = () => {
                   pattern: {
                     value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                     message: 'Please enter a valid email',
+                  },
+                  maxLength: {
+                    value: 100,
+                    message: 'Email should not be greater than 100 characters',
                   },
                 }}
                 render={({ field }) => (
@@ -124,12 +154,16 @@ const PersonalDetailsCreation = () => {
                     fullWidth
                     error={!!errors.email}
                     helperText={errors.email?.message}
+                    onChange={(e) => {
+                      field.onChange(e);
+                      validateField('email');
+                    }}
                   />
                 )}
               />
             </Box>
 
-            <Box mt={4}>
+            <Box mt={3}>
               <Controller
                 name="dateOfBirth"
                 control={control}
@@ -148,8 +182,9 @@ const PersonalDetailsCreation = () => {
                     label="Date of birth"
                     onChange={(date) => {
                       setValue('dateOfBirth', date, { shouldValidate: true });
+                      validateField('dateOfBirth');
                     }}
-                    value={watchDateOfBirth}
+                    value={field.value}
                     required={true}
                     error={!!errors.dateOfBirth}
                     helperText={errors.dateOfBirth?.message}
@@ -159,7 +194,7 @@ const PersonalDetailsCreation = () => {
             </Box>
 
             <Box mt={2} mb={2}>
-              <Typography size="body">
+              <Typography className={styles.label_indetify_text}>
                 You identify yourself as
                 <strong className={styles.mandertystar}>*</strong>:
               </Typography>
@@ -167,7 +202,7 @@ const PersonalDetailsCreation = () => {
 
             <Box className={styles.boxConatiner}>
               {superCards?.map((card: any, index) => (
-                <Box key={card.key}>
+                <Box key={card.key} width="100%" px={1}>
                   <SuperCards
                     cardData={card}
                     active={selectedCard === card.key}
@@ -183,10 +218,12 @@ const PersonalDetailsCreation = () => {
                 Please select at least one card.
               </Typography>
             )}
-            <Box mt={3}>
-              <Button fullWidth type="submit">
-                <Typography size="btn">Continue</Typography>
-              </Button>
+            <Box className={styles.btn_abs_btm}>
+              <Box className="btn_fixed_res">
+                <Button fullWidth type="submit">
+                  <Typography size="btn">Continue</Typography>
+                </Button>
+              </Box>
             </Box>
           </form>
         </Box>

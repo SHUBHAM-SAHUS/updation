@@ -11,3 +11,4 @@ export { default as OTPField } from './OtpInput';
 export { default as CustomSwitch } from './Switch';
 export { default as TransitionDialog } from "./TransitionDialog"
 export { default as ImageRotation } from "./ImageRotation"
+export { default as CustomDialog } from "./TransitionDialog"

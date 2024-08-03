@@ -1,5 +1,5 @@
 'use client';
-import React, { ChangeEvent, FC, useEffect, useState, useRef } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState, useRef, memo } from 'react';
 import {
   TextField,
   FormControl,
@@ -124,7 +124,8 @@ const InputDropdown: FC<InputDropdownProps> = ({
     const { mobileNumberLengthMin, mobileNumberLengthMax } = country;
     if (
       number.length < mobileNumberLengthMin ||
-      number.length > mobileNumberLengthMax
+      number.length > mobileNumberLengthMax ||
+      /^0+$/.test(number)
     ) {
       setValidationError('Please enter a valid Phone Number');
       return false;
@@ -166,7 +167,8 @@ const InputDropdown: FC<InputDropdownProps> = ({
           marginTop: '55px',
           '& .MuiAutocomplete-paper': {
             marginLeft: { xs: '25px', sm: '105px', md: '182px', lg: '180px' },
-            marginTop: { xs: '10px', sm: '15px', md: '20px', lg: '25px' },
+            marginTop: { xs: '10px', sm: '15px', md: '20px', lg: '35px' },
+            paddingLeft: { xs: '6px', sm: '11px', md: '3px', lg: '5px' },
           },
         }}
       />
@@ -196,7 +198,7 @@ const InputDropdown: FC<InputDropdownProps> = ({
           }`}
           style={getLabelStyles()}
         >
-          Phone Number{' '}
+          Phone Number{''}
           {props.required && <span className={styles.required}>*</span>}
         </label>
         <div
@@ -214,7 +216,7 @@ const InputDropdown: FC<InputDropdownProps> = ({
             <Autocomplete
               sx={{
                 padding: '0px',
-                marginTop: '21px',
+                marginTop: '17px',
                 '& .MuiOutlinedInput-root': { padding: '4px' },
                 '& .MuiAutocomplete-endAdornment': {
                   paddingRight: '2px',
@@ -243,8 +245,10 @@ const InputDropdown: FC<InputDropdownProps> = ({
                   <Image
                     src={option?.flagUrl}
                     alt={`${option.name} flag`}
-                    width={45}
-                    height={30}
+                    // width={45}
+                    // height={30}
+                    width={38}
+                    height={28}
                     className={styles.countryFlag}
                   />
                   <span className={styles.countryName}>{option?.name}</span>
@@ -267,8 +271,10 @@ const InputDropdown: FC<InputDropdownProps> = ({
                           <Image
                             src={selectedCountry.flagUrl}
                             alt={`${selectedCountry.name} flag`}
-                            width={45}
-                            height={30}
+                            // width={45}
+                            // height={30}
+                            width={37}
+                            height={27}
                             className={styles.countryFlag}
                           />
                         ) : (
@@ -340,4 +346,4 @@ const InputDropdown: FC<InputDropdownProps> = ({
   );
 };
 
-export default InputDropdown;
+export default memo(InputDropdown);

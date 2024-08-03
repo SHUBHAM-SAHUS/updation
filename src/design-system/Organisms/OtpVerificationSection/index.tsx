@@ -107,7 +107,7 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
         return <Typography size="btn">Resend OTP</Typography>;
       } else {
         return (
-          <Typography size="body">
+          <Typography className='text-button'>
             Resend OTP in {minutes}:{seconds < 10 ? `0${seconds}` : seconds}s
           </Typography>
         );
@@ -128,26 +128,30 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
   }, [sendOtp, otpDetails, resendCount, currentSelectCountry.otpAttemptLimit]);
 
   const otpResendTime = useMemo(() => {
-    return currentSelectCountry?.otpResendTime * 100; // Changed * 100 to * 1000
+    return currentSelectCountry?.otpResendTime * 1000; // Changed * 100 to * 1000
   }, [currentSelectCountry?.otpResendTime]);
 
   return (
     <Box className={`${styles.otpContainer} ${styles.containerRow}`}>
       <Box className={styles.otp_contain_justify}>
-        <Box className={styles.otparrow} onClick={() => router.push('/')}>
-          <FaArrowLeft size={30} className={styles.arrow01} />
+        <Box className={styles.otparrow}>
+          <FaArrowLeft
+            size={30}
+            className={styles.arrow01}
+            onClick={() => router.back()}
+          />
           <Typography fontFamily="Poppins" size="subtitlew" textAlign="left">
             OTP Verification
           </Typography>
         </Box>
-        <Box mt={isMobile ? 2 : 4} px={2}>
+        <Box mt={isMobile ? 2 : 3}>
           <Typography
             fontFamily="Poppins"
             size={isMobile ? 'small' : 'bodyw'}
             textAlign="left"
           >
             Enter the verification code sent to your registered mobile number
-            <Box component="strong">
+            <Box component="strong" ml={1}>
               {otpDetails.mobileNumberPrefix} {otpDetails.mobile}
             </Box>
           </Typography>
@@ -157,7 +161,7 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
             display: 'flex',
             justifyContent: { md: 'flex-start' },
           }}
-          mt={isMobile ? 2 : 4}
+          mt={isMobile ? 2 : 5}
         >
           <OTPInput
             otp={otp}
@@ -183,7 +187,8 @@ const OtpVerificationSection: React.FC<InputFieldComponentProps> = () => {
         fullWidth
         type="submit"
         disabled={
-          resendEnabled || resendCount >= currentSelectCountry.otpAttemptLimit-1
+          resendEnabled ||
+          resendCount >= currentSelectCountry.otpAttemptLimit - 1
         }
         onClick={handleReSendOtp}
       >

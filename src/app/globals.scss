@@ -2,6 +2,25 @@
 @import './custom.scss';
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #777; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 /* Variables for font sizes and weights */
 $font-size-base: 16px;
 
@@ -131,3 +150,119 @@ a {
   background-color: #000000;
 }
 
+///////////// has to implement seperatly /////////////////
+
+// Dropdown Outerbox Css
+
+// .css-1hlgsb6-MuiAutocomplete-listbox{
+//   padding: 12px !important;
+//   background-color: #000000;
+//   line-height: 2.5;
+//   border-radius: 8px;
+//   border: 1px solid rgba(255,255,255,.15);
+// }
+
+// .css-1hlgsb6-MuiAutocomplete-listbox li{
+//   border-radius: 6px;
+//   cursor: pointer;
+// }
+
+.toolbar_mob_res{
+  align-items: center !important;
+}
+
+@media (max-width: 992px) {
+  
+  .btn_fixed_res{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #000000;
+    z-index: 99;
+    padding: 26px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  //////  responsive toolbar ////////
+
+  .toolbar_mob_res{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 26px;
+    width: 100%;
+    align-items: center !important;
+  }
+
+  .toolbar_mob_res .text-subtitle-weight{
+    font-size: 18px !important;
+    font-weight: 500 !important;
+  }
+
+  .toolbar_mob_res_heading{
+    font-size: 18px !important;
+    font-weight: 500 !important;
+  }  
+
+  .toolbar_mob_res .arrow01{
+    position: absolute;
+    left: 24px;
+  }
+
+}
+
+@media (max-width: 575px) {
+  
+  .btn_fixed_res{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #000000;
+    z-index: 99;
+    padding: 24px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+}
+
+
+@media (max-width: 992px) {
+
+.toolbar_mob_res{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 26px;
+    z-index: 99;
+    width: 100%;
+    background-color: #000000;
+    align-items: center !important;
+  }
+
+  .toolbar_mob_res .text-subtitle-weight{
+    font-size: 18px !important;
+    font-weight: 500 !important;
+  }
+
+  .toolbar_mob_res_heading{
+    font-size: 18px !important;
+    font-weight: 500 !important;
+  }  
+
+  .toolbar_mob_res .arrow01{
+    position: absolute;
+    left: 24px;
+  }
+
+}
+
+
+// .css-1w0im7y-MuiInputBase-input-MuiOutlinedInput-input {
+//   text-transform: uppercase;
+// }
